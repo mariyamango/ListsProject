@@ -1,13 +1,3 @@
-//Step 1: Create a Java class "Student" that should have the following properties: First name, Last name, Student ID.
-//Step 2: Create a Java List for elements of type "Student" and add multiple students.
-//Step 3: Create a class "School" to which students can be added through a method ('addStudent').
-//Step 4: Implement a method to print all students of the school (as text, to the console).
-//Step 5: Add a method to find a student by their ID. The found student should be returned.
-//Step 6: Create a method to remove a student from the school.
-//Expand the Java-List project with a class called "Course" that has the following properties: course name, instructor, room.
-//Add a method to the Student class to add courses to the student (courses in which the student is participating).
-//Implement a method within the School class to retrieve all courses of a specific student (based on a student ID).
-
 package org.example;
 
 import java.util.ArrayList;
@@ -42,5 +32,20 @@ public class Main {
         int idStudentToAddCourse = 5;
         school.getStudentById(idStudentToAddCourse).addCourse(new Course("Mathematics", "Teacher Wilson", 101));
         System.out.println("The courses of student with id " + idStudentToAddCourse + ": " + school.getStudentCourses(idStudentToAddCourse));
+        System.out.println();
+
+        Sack sack = new Sack();
+        sack.addElement(1);
+        sack.addElement(2);
+        sack.addElement(3);
+        sack.addElement(4);
+        sack.addElement(5);
+        System.out.println(sack);
+        System.out.println("Getting the element with index 0: " + sack.get(0));
+        System.out.println("The size of sack: " + sack.size());
+        sack.removeLast();
+        System.out.println("Removing the las element: " + sack);
+        sack.removeByIndex(1);
+        System.out.println("Removing the element with index 1: " + sack);
     }
 }
