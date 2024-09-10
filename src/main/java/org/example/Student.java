@@ -25,7 +25,7 @@ public class Student {
         return "Student: " +
                 "studentId=" + studentId +
                 " firstName='" + firstName + '\'' +
-                " lastName='" + lastName + '\'';
+                " lastName='" + lastName + "; ";
     }
 
     public void addCourse(Course course) {

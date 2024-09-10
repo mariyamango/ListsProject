@@ -1,54 +1,48 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class School {
-    private List<Student> studentsOfSchool;
+    private Map<Integer,Student> studentsOfSchool;
 
     public School() {
-        studentsOfSchool = new ArrayList<>();
+        studentsOfSchool = new HashMap();
     }
 
     public void addStudent(Student student) {
-        studentsOfSchool.add(student);
+        studentsOfSchool.put(student.getStudentId(), student);
     }
 
     public Student getStudentById(int studentIdToFind) {
-        for (Student student : studentsOfSchool) {
-            if (student.getStudentId() == studentIdToFind){
-                return student;
-            }
+        if (studentsOfSchool.containsKey(studentIdToFind)) {
+            return studentsOfSchool.get(studentIdToFind);
         }
         System.out.println("No students with id " + studentIdToFind + " were found.");
         return null;
     }
 
     public void removeStudentById(int idOfStudentToRemove) {
-        for (int i = 0; i < studentsOfSchool.size(); i++) {
-            if (studentsOfSchool.get(i).getStudentId() == idOfStudentToRemove){
-                studentsOfSchool.remove(i);}
-            }
+        studentsOfSchool.remove(idOfStudentToRemove);
         System.out.println("The student with id " + idOfStudentToRemove + " was removed.");
     }
 
     public void schoolStudentsListToPrint() {
-        if (studentsOfSchool.isEmpty()) {
-            System.out.println("There are no students in the school.");
+        if (studentsOfSchool.size() > 0) {
+            System.out.println("Students in the school: ");
+            for (Student student : studentsOfSchool.values()) {
+                System.out.print(student);
+            }
         }
         else {
-            System.out.println("The students in the school:");
-            for (Student student : studentsOfSchool) {
-                System.out.println(student);
-            }
+            System.out.println("There are no students in the school.");
         }
     }
 
     public List<Course> getStudentCourses(int studentId) {
-        for (Student student : studentsOfSchool) {
-            if (student.getStudentId() == studentId){
-                return student.getCourses();
-            }
+        if (studentsOfSchool.containsKey(studentId)) {
+            return studentsOfSchool.get(studentId).getCourses();
         }
         return null;
     }
