@@ -8,7 +8,7 @@ public class School {
     private Map<Integer,Student> studentsOfSchool;
 
     public School() {
-        studentsOfSchool = new HashMap();
+        studentsOfSchool = new HashMap<>();
     }
 
     public void addStudent(Student student) {
@@ -29,7 +29,7 @@ public class School {
     }
 
     public void schoolStudentsListToPrint() {
-        if (studentsOfSchool.size() > 0) {
+        if (!studentsOfSchool.isEmpty()) {
             System.out.println("Students in the school: ");
             for (Student student : studentsOfSchool.values()) {
                 System.out.print(student);
